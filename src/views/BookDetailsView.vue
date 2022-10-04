@@ -16,7 +16,7 @@
           <h3 class="preface-title">Preface:</h3>
           <p class="preface-content">{{ book.preface }}</p>
         </div>
-        <br/>
+        <br />
         <a
           :href="book.link"
           class="get-book-link"
@@ -46,7 +46,7 @@ export default {
   },
   created() {
     this.book = books.find((book) => book.id === Number(this.$route.params.id));
-    this.publishDate = new Date(this.book.publishDate)
+    this.publishDate = new Date(this.book.publishDate);
   },
 };
 </script>

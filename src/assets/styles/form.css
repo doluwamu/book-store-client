@@ -1,0 +1,45 @@
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.form-items {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.form-item {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.form-item .label-wrapper {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.form-item .label-wrapper label {
+  font-weight: 600;
+}
+
+.form-item input,
+.form-item textarea {
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 2px 0.05px #000;
+  outline: none;
+}
+
+.form-item input:hover,
+.form-item textarea:hover,
+.form-item input:focus,
+.form-item textarea:focus {
+  box-shadow: 0 0 3.5px 0.1px #000;
+}
+
+textarea {
+  resize: none;
+}
