@@ -43,3 +43,24 @@
 textarea {
   resize: none;
 }
+
+.form-button {
+  width: 50%;
+  margin: 15px auto;
+}
+
+.form-button button {
+  background-color: rgb(2, 86, 86);
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.form-button button:hover {
+  background-color: rgb(2, 47, 49);
+}
