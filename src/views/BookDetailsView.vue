@@ -16,6 +16,7 @@
           <h3 class="preface-title">Preface:</h3>
           <p class="preface-content">{{ book.preface }}</p>
         </div>
+        <br/>
         <a
           :href="book.link"
           class="get-book-link"
@@ -45,7 +46,7 @@ export default {
   },
   created() {
     this.book = books.find((book) => book.id === Number(this.$route.params.id));
-    this.publishDate = new Date(this.book.publishDate);
+    this.publishDate = new Date(this.book.publishDate)
   },
 };
 </script>
@@ -81,7 +82,10 @@ export default {
 }
 
 .get-book-link {
-  color: blue;
+  color: #fff;
+  background-color: rgb(2, 86, 86);
+  padding: 9px;
+  border-radius: 6px;
   text-decoration: none;
   font-size: 14px;
 }

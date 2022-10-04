@@ -54,6 +54,17 @@ const books = [
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
     link: "https://momentjs.com/",
   },
+  {
+    id: 6,
+    image: "/images/book.jpg",
+    name: "Tai Lon",
+    numOfPages: 2343,
+    author: "Wang Yu",
+    publishDate: "07-05-2007",
+    preface:
+      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
+    link: "https://momentjs.com/",
+  },
 ];
 
 export default books;

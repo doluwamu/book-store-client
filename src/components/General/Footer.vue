@@ -4,8 +4,8 @@
   </footer>
 </template>
 
-<!-- <style scoped>
-footer {
-  padding: 10px 5px;
+<style scoped>
+footer p {
+  font-size: 14px;
 }
-</style> -->
+</style>
