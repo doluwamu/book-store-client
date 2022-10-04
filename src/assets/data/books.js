@@ -8,6 +8,7 @@ const books = [
     publishDate: "06-20-1996",
     preface:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
+    link: "https://momentjs.com/",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const books = [
     publishDate: "03-14-1943",
     preface:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
+    link: "https://momentjs.com/",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const books = [
     publishDate: "09-23-1973",
     preface:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
+    link: "https://momentjs.com/",
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const books = [
     publishDate: "09-23-1973",
     preface:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
+    link: "https://momentjs.com/",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const books = [
     publishDate: "09-23-1973",
     preface:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
+    link: "https://momentjs.com/",
   },
 ];
 

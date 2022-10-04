@@ -32,7 +32,7 @@
 .home .books-container .card {
   width: 300px;
   min-height: 350px;
-  box-shadow: 0 0 9px 0.3px #000;
+  box-shadow: 0 0 4px 0.2px #000;
   border-radius: 10px;
   overflow: hidden;
   /* background-color: pink; */

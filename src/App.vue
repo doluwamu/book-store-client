@@ -4,7 +4,17 @@
     <router-link to="/add-book">Add Book</router-link>
   </nav>
   <router-view />
+  <Footer />
 </template>
+
+<script>
+import Footer from "@/components/General/Footer.vue";
+
+export default {
+  name: "App",
+  components: { Footer },
+};
+</script>
 
 <style>
 #app {
@@ -13,6 +23,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.home,
+.book-details,
+.create-book {
+  min-height: 73vh;
 }
 
 nav {
