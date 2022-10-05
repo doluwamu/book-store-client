@@ -14,4 +14,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.create-book {
+  padding: 30px 15px;
+  text-align: left;
+}
+
+.create-book h1 {
+  text-align: center;
+}
+</style>

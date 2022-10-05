@@ -26,7 +26,7 @@
 .form-item input,
 .form-item textarea {
   width: 100%;
-  padding: 10px 5px;
+  padding: 10px;
   border-radius: 10px;
   border: none;
   box-shadow: 0 0 2px 0.05px #000;

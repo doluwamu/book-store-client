@@ -17,12 +17,24 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .home,
@@ -32,15 +44,17 @@ export default {
 }
 
 nav {
-  padding: 30px;
+  padding: 20px;
+  background-color: rgb(8, 7, 7);
+  box-shadow: 0 0 10px 0.4px rgb(70, 70, 70);
 }
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #bbb;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #fff;
 }
 </style>

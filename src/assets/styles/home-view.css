@@ -1,13 +1,14 @@
 .home {
   /* background-color: red; */
   padding: 10px;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
 .home .home-titles {
   max-width: 900px;
   margin: 0 auto;
+  padding: 25px 15px;
 }
 
 .home .home-title {
@@ -27,14 +28,15 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 15px;
+  padding: 20px;
 }
 
 .home .books-container .card {
   width: 300px;
   min-height: 350px;
-  box-shadow: 0 0 4px 0.2px #000;
-  border-radius: 10px;
+  /* box-shadow: 0 0 4px 0.2px #000; */
   overflow: hidden;
+  text-align: left !important;
   /* background-color: pink; */
 }
 

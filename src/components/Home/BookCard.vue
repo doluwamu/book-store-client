@@ -2,12 +2,20 @@
   <div class="card">
     <div class="book-img-wrapper">
       <router-link :to="{ name: 'bookDetails', params: { id: book.id } }">
-        <img :src="book.image" :alt="book.name" class="book-img" />
+        <img
+          :src="book && book.image && book.image"
+          :alt="book.name"
+          class="book-img"
+        />
       </router-link>
     </div>
     <div class="card-info">
-      <p class="book-name">Name: {{ book.name.toUpperCase() }}</p>
-      <p class="book-author">Author: {{ book.author.toUpperCase() }}</p>
+      <p class="book-name">
+        Name: {{ book && book.name && book.name.toUpperCase() }}
+      </p>
+      <p class="book-author">
+        Author: {{ book && book.author && book.author.toUpperCase() }}
+      </p>
       <router-link
         class="view-link"
         :to="{ name: 'bookDetails', params: { id: book.id } }"

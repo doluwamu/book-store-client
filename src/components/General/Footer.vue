@@ -5,6 +5,10 @@
 </template>
 
 <style scoped>
+footer {
+  padding: 20px;
+}
+
 footer p {
   font-size: 14px;
 }

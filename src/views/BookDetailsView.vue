@@ -1,52 +1,62 @@
 <template lang="">
   <div class="book-details">
     <div class="detail-container">
-      <h1 class="book-name">{{ book.name.toUpperCase() }}</h1>
+      <h1 class="book-name">
+        {{ book && book.name && book.name.toUpperCase() }}
+      </h1>
 
       <div class="book-img-wrapper">
-        <img :src="book.image" :alt="book.name" />
+        <img
+          :src="book && book.image && book.image"
+          :alt="book && book.name && book.name"
+        />
       </div>
 
       <div class="other-info">
-        <h4 class="author">
-          Written by {{ book.author }} on
+        <h4 class="author info">
+          Written by {{ book && book.author && book.author }} on
           {{ moment(publishDate).format("MMMM Do YYYY") }}
         </h4>
-        <div class="preface-section">
+        <div class="preface-section info">
           <h3 class="preface-title">Preface:</h3>
-          <p class="preface-content">{{ book.preface }}</p>
+          <p class="preface-content">
+            {{ book && book.preface && book.preface }}
+          </p>
         </div>
         <br />
         <a
-          :href="book.link"
-          class="get-book-link"
+          :href="book && book.link && book.link"
+          class="get-book-link info"
           target="_blank"
           rel="noopener noreferrer"
           >Get Book</a
         >
-        <br />
-        <br />
       </div>
     </div>
   </div>
 </template>
 <script>
-import books from "@/assets/data/books";
 import moment from "moment";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "BookDetails",
   components: {},
+  computed: { ...mapGetters(["book"]) },
+  methods: {
+    ...mapActions(["getBook"]),
+  },
   data() {
     return {
-      book: {},
       publishDate: "",
       moment,
     };
   },
-  created() {
-    this.book = books.find((book) => book.id === Number(this.$route.params.id));
-    this.publishDate = new Date(this.book.publishDate);
+  async created() {
+    await this.getBook(this.$route.params.id);
+    this.publishDate = new Date(
+      this.book && this.book !== null && this.book.publishDate
+    );
   },
 };
 </script>
@@ -55,12 +65,18 @@ export default {
 .book-details {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 15px;
+}
+
+.book-name {
+  padding: 20px 0;
 }
 
 .book-img-wrapper {
   max-width: 700px;
   max-height: 500px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .book-img-wrapper img {
@@ -88,5 +104,21 @@ export default {
   border-radius: 6px;
   text-decoration: none;
   font-size: 14px;
+}
+
+.other-info {
+  margin: 30px auto 10px;
+}
+
+.info {
+  margin: 20px auto;
+}
+
+.preface-content {
+  line-height: 23px;
+}
+
+.author {
+  font-size: 20px;
 }
 </style>

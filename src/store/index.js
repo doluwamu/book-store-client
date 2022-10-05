@@ -1,14 +1,6 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
+import bookModules from "./book";
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+  modules: { books: bookModules },
+});
