@@ -96,9 +96,11 @@
 
 <script>
 import "@/assets/styles/form.css";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "CreateForm",
+  computed: { ...mapGetters(["addBookMsg"]) },
   data() {
     return {
       image: "",
@@ -111,7 +113,19 @@ export default {
     };
   },
   methods: {
-    handleAddBook(e) {
+    ...mapActions(["addBook"]),
+
+    resetForm() {
+      this.image = "";
+      this.name = "";
+      this.numOfPages = "";
+      this.author = "";
+      this.publishDate = "";
+      this.preface = "";
+      this.link = "";
+    },
+
+    async handleAddBook(e) {
       e.preventDefault();
       const bookData = {
         image: this.image,
@@ -122,7 +136,8 @@ export default {
         preface: this.preface,
         link: this.preface,
       };
-      console.log(bookData);
+      const { message } = await this.addBook(bookData);
+      if (message) return this.resetForm();
     },
   },
 };

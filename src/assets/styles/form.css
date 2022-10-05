@@ -29,7 +29,7 @@
   padding: 10px;
   border-radius: 10px;
   border: none;
-  box-shadow: 0 0 2px 0.05px #000;
+  box-shadow: 0 0 2px 0.06px #eee;
   outline: none;
 }
 
@@ -37,7 +37,7 @@
 .form-item textarea:hover,
 .form-item input:focus,
 .form-item textarea:focus {
-  box-shadow: 0 0 3.5px 0.1px #000;
+  box-shadow: 0 0 4px 0.09px #eee;
 }
 
 textarea {

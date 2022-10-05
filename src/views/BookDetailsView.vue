@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="book-details">
     <div class="detail-container">
       <h1 class="book-name">
@@ -41,7 +41,6 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "BookDetails",
-  components: {},
   computed: { ...mapGetters(["book"]) },
   methods: {
     ...mapActions(["getBook"]),

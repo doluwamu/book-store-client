@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 .create-book {
-  padding: 30px 15px;
+  padding: 30px 15px 5px;
   text-align: left;
 }
 

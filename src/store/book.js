@@ -11,26 +11,46 @@ const state = {
     preface: "",
     link: "",
   },
+  addBookMsg: { message: "" },
 };
 
 const getters = {
   allBooks: (state) => state.books,
   book: (state) => state.book,
+  addBookMsg: (state) => state.addBookMsg,
 };
 
 const mutations = {
   setBooks: (state, books) => (state.books = books),
   setBook: (state, book) => (state.book = book),
+  setAddBookMsg: (state, addBookMsg) => (state.addBookMsg = addBookMsg),
 };
 
 const actions = {
   getBooks: async ({ commit }) => {
-    const { data } = await axiosInstance.get("/books");
-    commit("setBooks", data);
+    try {
+      const { data } = await axiosInstance.get("/books");
+      commit("setBooks", data);
+    } catch (error) {
+      debugger;
+    }
   },
   getBook: async ({ commit }, bookId) => {
-    const { data } = await axiosInstance.get(`/books/${bookId}`);
-    commit("setBook", data);
+    try {
+      const { data } = await axiosInstance.get(`/books/${bookId}`);
+      commit("setBook", data);
+    } catch (error) {
+      debugger;
+    }
+  },
+  addBook: async ({ commit }, bookData) => {
+    try {
+      const { data } = await axiosInstance.post("/books/", bookData);
+      commit("setAddBookMsg", data);
+      return data;
+    } catch (error) {
+      debugger;
+    }
   },
 };
 
