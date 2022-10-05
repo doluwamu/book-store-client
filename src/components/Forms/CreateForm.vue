@@ -96,11 +96,11 @@
 
 <script>
 import "@/assets/styles/form.css";
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "CreateForm",
-  computed: { ...mapGetters(["addBookMsg"]) },
+
   data() {
     return {
       image: "",

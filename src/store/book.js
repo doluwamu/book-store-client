@@ -11,7 +11,7 @@ const state = {
     preface: "",
     link: "",
   },
-  addBookMsg: { message: "" },
+  addBookMsg: { id: "", message: "" },
 };
 
 const getters = {
@@ -24,6 +24,7 @@ const mutations = {
   setBooks: (state, books) => (state.books = books),
   setBook: (state, book) => (state.book = book),
   setAddBookMsg: (state, addBookMsg) => (state.addBookMsg = addBookMsg),
+  clearAddBookMsg: (state) => (state.addBookMsg = { id: "", message: "" }),
 };
 
 const actions = {

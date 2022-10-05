@@ -35,6 +35,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
@@ -93,7 +94,7 @@ export default {
 }
 
 .preface-content {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .get-book-link {

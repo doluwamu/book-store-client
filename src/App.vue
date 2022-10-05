@@ -47,6 +47,9 @@ nav {
   padding: 20px;
   background-color: rgb(8, 7, 7);
   box-shadow: 0 0 10px 0.4px rgb(70, 70, 70);
+  position: sticky;
+  top: 0;
+  z-index: 1111;
 }
 
 nav a {

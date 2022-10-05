@@ -1,4 +1,7 @@
 <template>
+  <div class="msg-alert" v-if="addBookMsg && addBookMsg.message">
+    <Alert type="success" :message="addBookMsg.message" />
+  </div>
   <div class="create-book">
     <h1>ADD A BOOK</h1>
     <CreateForm />
@@ -7,10 +10,13 @@
 
 <script>
 import CreateForm from "@/components/Forms/CreateForm.vue";
+import Alert from "@/components/General/Alert.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "CreateBook",
-  components: { CreateForm },
+  components: { CreateForm, Alert },
+  computed: { ...mapGetters(["addBookMsg"]) },
 };
 </script>
 
