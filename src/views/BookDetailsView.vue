@@ -17,13 +17,23 @@
           Written by {{ book && book.author && book.author }} on
           {{ moment(publishDate).format("MMMM Do YYYY") }}
         </h4>
+
         <div class="preface-section info">
-          <h3 class="preface-title">Preface:</h3>
-          <p class="preface-content">
+          <h3 class="preface-title title">Preface:</h3>
+          <p class="preface-content content">
             {{ book && book.preface && book.preface }}
           </p>
         </div>
+
+        <div class="category-section info">
+          <h3 class="category-title title">Category:</h3>
+          <p class="category-content content">
+            {{ book && book.category && book.category }}
+          </p>
+        </div>
+
         <br />
+
         <a
           :href="book && book.link && book.link"
           class="get-book-link info"
@@ -84,17 +94,22 @@ export default {
   height: 100%;
 }
 
-.preface-section {
+.info {
+  margin: 20px auto;
   max-width: 600px;
-  margin: 0 auto;
 }
 
-.preface-title {
+.author {
+  font-size: 20px;
+}
+
+.title {
   margin-bottom: 0;
 }
 
-.preface-content {
+.content {
   margin-top: 5px;
+  line-height: 23px;
 }
 
 .get-book-link {
@@ -108,17 +123,5 @@ export default {
 
 .other-info {
   margin: 30px auto 10px;
-}
-
-.info {
-  margin: 20px auto;
-}
-
-.preface-content {
-  line-height: 23px;
-}
-
-.author {
-  font-size: 20px;
 }
 </style>
