@@ -1,17 +1,22 @@
 import { axiosInstance } from "./axios.instance";
 
+const bookInitState = {
+  image: "",
+  name: "",
+  author: "",
+  category: "",
+  numOfPages: 0,
+  publishDate: "",
+  preface: "",
+  link: "",
+};
+
+const msgInitState = { id: "", message: "" };
+
 const state = {
   books: [],
-  book: {
-    image: "",
-    name: "",
-    numOfPages: 0,
-    author: "",
-    publishDate: "",
-    preface: "",
-    link: "",
-  },
-  addBookMsg: { id: "", message: "" },
+  book: bookInitState,
+  addBookMsg: msgInitState,
 };
 
 const getters = {
@@ -24,7 +29,9 @@ const mutations = {
   setBooks: (state, books) => (state.books = books),
   setBook: (state, book) => (state.book = book),
   setAddBookMsg: (state, addBookMsg) => (state.addBookMsg = addBookMsg),
-  clearAddBookMsg: (state) => (state.addBookMsg = { id: "", message: "" }),
+  clearBooks: (state) => (state.books = []),
+  clearBook: (state) => (state.book = bookInitState),
+  clearAddBookMsg: (state) => (state.addBookMsg = msgInitState),
 };
 
 const actions = {

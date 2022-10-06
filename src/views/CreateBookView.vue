@@ -11,12 +11,20 @@
 <script>
 import CreateForm from "@/components/Forms/CreateForm.vue";
 import Alert from "@/components/General/Alert.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "CreateBook",
   components: { CreateForm, Alert },
   computed: { ...mapGetters(["addBookMsg"]) },
+  methods: {
+    ...mapMutations(["clearBooks"]),
+    ...mapMutations(["clearBook"]),
+  },
+  created() {
+    this.clearBooks();
+    this.clearBook();
+  },
 };
 </script>
 

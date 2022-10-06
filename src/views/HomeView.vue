@@ -19,12 +19,12 @@
 // @ is an alias to /src
 import BookCard from "@/components/Home/BookCard.vue";
 import "@/assets/styles/home-view.css";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   name: "HomeView",
   components: { BookCard },
-  computed: { ...mapGetters(["allBooks"]) },
+  computed: { ...mapGetters(["allBooks"]), ...mapMutations(["clearBook"]) },
   methods: { ...mapActions(["getBooks"]) },
   data() {
     return {
@@ -33,6 +33,7 @@ export default {
   },
   async created() {
     await this.getBooks();
+    this.clearBook();
   },
 };
 </script>

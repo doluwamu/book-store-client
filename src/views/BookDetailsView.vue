@@ -48,13 +48,14 @@
 
 <script>
 import moment from "moment";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   name: "BookDetails",
   computed: { ...mapGetters(["book"]) },
   methods: {
     ...mapActions(["getBook"]),
+    ...mapMutations(["clearBooks"]),
   },
   data() {
     return {
@@ -63,6 +64,7 @@ export default {
     };
   },
   async created() {
+    this.clearBooks();
     await this.getBook(this.$route.params.id);
     this.publishDate = new Date(
       this.book && this.book !== null && this.book.publishDate
