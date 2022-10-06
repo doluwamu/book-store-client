@@ -13,6 +13,7 @@
           placeholder="Write here..."
         />
       </div>
+
       <div class="form-item book__image">
         <div class="label-wrapper">
           <label>Image:</label>
@@ -25,6 +26,7 @@
           placeholder="Write here..."
         />
       </div>
+
       <div class="form-item book__author">
         <div class="label-wrapper">
           <label>Author:</label>
@@ -37,6 +39,7 @@
           placeholder="Write here..."
         />
       </div>
+
       <div class="form-item book__publish__date">
         <div class="label-wrapper">
           <label>Publish date:</label>
@@ -49,6 +52,7 @@
           placeholder="Write here..."
         />
       </div>
+
       <div class="form-item book__num__of__pages">
         <div class="label-wrapper">
           <label>Number of pages:</label>
@@ -61,6 +65,24 @@
           placeholder="Write here..."
         />
       </div>
+
+      <div class="form-item book__category">
+        <div class="label-wrapper">
+          <label>Category:</label>
+        </div>
+
+        <select name="categories" class="categories">
+          <option value="">Select...</option>
+          <option
+            v-for="(category, index) in categories"
+            :key="index"
+            :value="category"
+          >
+            {{ category }}
+          </option>
+        </select>
+      </div>
+
       <div class="form-item book__preface">
         <div class="label-wrapper">
           <label>Preface:</label>
@@ -74,6 +96,7 @@
           rows="10"
         ></textarea>
       </div>
+
       <div class="form-item book__link">
         <div class="label-wrapper">
           <label>Link:</label>
@@ -96,7 +119,8 @@
 
 <script>
 import "@/assets/styles/form.css";
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
+import { categories } from "@/assets/data/books";
 
 export default {
   name: "CreateForm",
@@ -110,10 +134,13 @@ export default {
       publishDate: "",
       preface: "",
       link: "",
+      category: "",
+      categories: [],
     };
   },
   methods: {
     ...mapActions(["addBook"]),
+    ...mapMutations(["setErrorMessage"]),
 
     resetForm() {
       this.image = "";
@@ -136,9 +163,17 @@ export default {
         preface: this.preface,
         link: this.preface,
       };
-      const { message } = await this.addBook(bookData);
-      if (message) return this.resetForm();
+      const message = await this.addBook(bookData);
+      console.log(message);
+      if (message && message.message) return this.resetForm();
+      // else {
+      //   this.setErrorMessage();
+      // }
     },
+  },
+
+  created() {
+    this.categories = categories;
   },
 };
 </script>

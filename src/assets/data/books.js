@@ -1,4 +1,4 @@
-const books = [
+export const books = [
   {
     id: 1,
     image: "/images/book.jpg",
@@ -67,4 +67,31 @@ const books = [
   },
 ];
 
-export default books;
+export const categories = [
+  "Action",
+  "Adventure stories",
+  "Classics",
+  "Crime",
+  "Fairy tales, fables and folk tales",
+  "Fantasy",
+  "Historical fiction",
+  "Horror",
+  "Humour and satire",
+  "Literary fiction",
+  "Mystery",
+  "Poetry",
+  "Plays",
+  "Romance",
+  "Science fiction",
+  "Short stories",
+  "Thrillers",
+  "War",
+  "Women's fiction",
+  "Young adult",
+  "Autobiography and memoir",
+  "Biography",
+  "Essays",
+  "Non-fiction novel",
+  "Self-help",
+  "Educational",
+];

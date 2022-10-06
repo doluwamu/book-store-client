@@ -24,7 +24,8 @@
 }
 
 .form-item input,
-.form-item textarea {
+.form-item textarea,
+.form-item select {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -34,9 +35,11 @@
 }
 
 .form-item input:hover,
-.form-item textarea:hover,
 .form-item input:focus,
-.form-item textarea:focus {
+.form-item textarea:hover,
+.form-item textarea:focus,
+.form-item select:hover,
+.form-item select:hover {
   box-shadow: 0 0 4px 0.09px #eee;
 }
 

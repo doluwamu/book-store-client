@@ -1,3 +1,4 @@
+import { getErrors } from "@/errors/serverErrors";
 import { axiosInstance } from "./axios.instance";
 
 const bookInitState = {
@@ -11,18 +12,20 @@ const bookInitState = {
   link: "",
 };
 
-const msgInitState = { id: "", message: "" };
+const msgInitState = { id: "", message: "", type: "" };
 
 const state = {
   books: [],
   book: bookInitState,
   addBookMsg: msgInitState,
+  errorMessage: "",
 };
 
 const getters = {
   allBooks: (state) => state.books,
   book: (state) => state.book,
   addBookMsg: (state) => state.addBookMsg,
+  errorMessage: (state) => state.errorMessage,
 };
 
 const mutations = {
@@ -32,6 +35,7 @@ const mutations = {
   clearBooks: (state) => (state.books = []),
   clearBook: (state) => (state.book = bookInitState),
   clearAddBookMsg: (state) => (state.addBookMsg = msgInitState),
+  setErrorMessage: (state, errorMessage) => (state.errorMessage = errorMessage),
 };
 
 const actions = {
@@ -40,7 +44,8 @@ const actions = {
       const { data } = await axiosInstance.get("/books");
       commit("setBooks", data);
     } catch (error) {
-      debugger;
+      console.log(getErrors(error));
+      commit("setErrorMessage", getErrors(error));
     }
   },
   getBook: async ({ commit }, bookId) => {
@@ -48,16 +53,23 @@ const actions = {
       const { data } = await axiosInstance.get(`/books/${bookId}`);
       commit("setBook", data);
     } catch (error) {
-      debugger;
+      console.log(getErrors(error));
+      commit("setErrorMessage", getErrors(error));
     }
   },
   addBook: async ({ commit }, bookData) => {
     try {
       const { data } = await axiosInstance.post("/books/", bookData);
-      commit("setAddBookMsg", data);
-      return data;
+      const addData = { ...data, type: "success" };
+      commit("setAddBookMsg", addData);
+      return addData;
     } catch (error) {
-      debugger;
+      console.log(getErrors(error));
+      const data = {
+        message: getErrors(error),
+        type: "error",
+      };
+      commit("setAddBookMsg", data);
     }
   },
 };

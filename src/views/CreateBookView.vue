@@ -1,6 +1,6 @@
 <template>
   <div class="msg-alert" v-if="addBookMsg && addBookMsg.message">
-    <Alert type="success" :message="addBookMsg.message" />
+    <Alert :type="addBookMsg.type" :message="addBookMsg.message" />
   </div>
   <div class="create-book">
     <h1>ADD A BOOK</h1>

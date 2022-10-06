@@ -1,87 +1,27 @@
-const books: {
-  id: number;
-  image: string;
-  name: string;
-  numOfPages: number;
-  author: string;
-  publishDate: string;
-  preface: string;
-}[] = [
-  {
-    id: 1,
-    image: "../images/book.jpg",
-    name: "The good son",
-    numOfPages: 900,
-    author: "Siri",
-    publishDate: "06-20-1996",
-    preface:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
-  },
-  {
-    id: 2,
-    image: "../images/book.jpg",
-    name: "Bask in the sun",
-    numOfPages: 348,
-    author: "Denis Linton",
-    publishDate: "03-14-1943",
-    preface:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
-  },
-  {
-    id: 3,
-    image: "../images/book.jpg",
-    name: "The detector",
-    numOfPages: 1200,
-    author: "Denis Linton",
-    publishDate: "09-23-1973",
-    preface:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
-  },
-  {
-    id: 4,
-    image: "../images/book.jpg",
-    name: "The land is green",
-    numOfPages: 750,
-    author: "John Albert",
-    publishDate: "09-23-1973",
-    preface:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
-  },
-  {
-    id: 5,
-    image: "../images/book.jpg",
-    name: "Mia Klin",
-    numOfPages: 1200,
-    author: "Denis Linton",
-    publishDate: "09-23-1973",
-    preface:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed earum porro exercitationem, nihil non necessitatibus vitae inventore temporibus, repellendus nesciunt veniam officiis dignissimos maxime labore quisquam! Illum quos exercitationem ad.",
-  },
-];
 
-export default books;
-
-
-
-
-<template>
-  <div class="home">
-    <div v-for="book in books" :key="book.id">
-      <p>{{ book.name }}</p>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
-import books from "@/assets/data/books";
-
-export default {
-  name: "HomeView",
-  components: {},
-  data() {
-    return {
-      books,
-    };
-  },
-};
-</script>
+[Adventure stories,
+Classics,
+Crime,
+Fairy tales fables and folk tales,
+Fantasy,
+Historical fiction,
+Horror,
+Humour and satire,
+Literary fiction,
+Mystery,
+Poetry,
+Plays,
+Romance,
+Science fiction,
+Short stories,
+Thrillers,
+War,
+Women’s fiction,
+Young adult,
+Autobiography and memoir,
+Biography,
+Essays,
+Non-fiction novel,
+Self-help,
+Educational
+]

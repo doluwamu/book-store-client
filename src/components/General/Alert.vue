@@ -22,7 +22,7 @@ export default {
 
   methods: {
     closeAlert() {
-      return this.clearAddBookMsg();
+      return this.clearAddBookMsg;
     },
   },
 };

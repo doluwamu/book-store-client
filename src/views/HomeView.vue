@@ -24,7 +24,10 @@ import { mapGetters, mapActions, mapMutations } from "vuex";
 export default {
   name: "HomeView",
   components: { BookCard },
-  computed: { ...mapGetters(["allBooks"]), ...mapMutations(["clearBook"]) },
+  computed: {
+    ...mapGetters(["allBooks"]),
+    ...mapMutations(["clearBook", "clearAddBookMsg"]),
+  },
   methods: { ...mapActions(["getBooks"]) },
   data() {
     return {
@@ -33,7 +36,8 @@ export default {
   },
   async created() {
     await this.getBooks();
-    this.clearBook();
+    this.clearBook;
+    // this.clearAddBookMsg();
   },
 };
 </script>
