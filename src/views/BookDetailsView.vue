@@ -3,6 +3,10 @@
     <Alert :type="bookMsg.type" :message="bookMsg.message" />
   </div>
 
+  <div class="msg-alert" v-if="errorMessage">
+    <Alert :type="errorMessage.type" :message="errorMessage.message" />
+  </div>
+
   <div class="book-details">
     <div class="detail-container">
       <h1 class="book-name">
@@ -60,7 +64,7 @@ import Alert from "@/components/General/Alert.vue";
 
 export default {
   name: "BookDetails",
-  computed: { ...mapGetters(["book", "bookMsg"]) },
+  computed: { ...mapGetters(["book", "bookMsg", "errorMessage"]) },
   components: { Alert },
   methods: {
     ...mapActions(["getBook", "deleteBook"]),

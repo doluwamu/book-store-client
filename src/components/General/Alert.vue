@@ -18,11 +18,12 @@ export default {
     type: String,
   },
 
-  computed: { ...mapMutations(["clearBookMsg"]) },
+  computed: { ...mapMutations(["clearBookMsg", "clearErrorMessage"]) },
 
   methods: {
     closeAlert() {
-      this.clearBookMsg;
+      if (this.$props.type === "success") return this.clearBookMsg;
+      if (this.$props.type === "error") return this.clearErrorMessage;
     },
   },
 };

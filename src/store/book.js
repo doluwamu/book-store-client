@@ -33,7 +33,7 @@ const state = {
   books: booksInitState,
   book: bookInitState,
   bookMsg: msgInitState,
-  errorMessage: "",
+  errorMessage: msgInitState,
 };
 
 const getters = {
@@ -51,6 +51,7 @@ const mutations = {
   clearBooks: (state) => (state.books = booksInitState),
   clearBook: (state) => (state.book = bookInitState),
   clearBookMsg: (state) => (state.bookMsg = msgInitState),
+  clearErrorMessage: (state) => (state.errorMessage = msgInitState),
 };
 
 const actions = {
@@ -80,8 +81,7 @@ const actions = {
       commit("setBookMsg", bookActionMsg(data));
       return bookActionMsg(data);
     } catch (error) {
-      console.log(getErrors(error));
-      commit("setBookMsg", bookActionErrorMsg(error));
+      commit("setErrorMessage", bookActionErrorMsg(error));
     }
   },
 
@@ -91,8 +91,18 @@ const actions = {
       commit("setBookMsg", bookActionMsg(data));
       return bookActionMsg(data);
     } catch (error) {
+      commit("setErrorMessage", bookActionErrorMsg(error));
+    }
+  },
+
+  editBook: async ({ commit }, bookId, bookData) => {
+    try {
+      const { data } = await axiosInstance.patch(`/books/${bookId}`, bookData);
+      commit("setBookMsg", bookActionMsg(data));
+      return bookActionMsg(data);
+    } catch (error) {
       console.log(error);
-      commit("setBookMsg", bookActionErrorMsg(error));
+      commit("setErrorMessage", bookActionErrorMsg(error));
     }
   },
 };

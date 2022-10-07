@@ -1,6 +1,9 @@
 <template>
-  <div class="msg-alert" v-if="bookMsg && bookMsg.message">
+  <div class="msg-alert" v-if="bookMsg">
     <Alert :type="bookMsg.type" :message="bookMsg.message" />
+  </div>
+  <div class="msg-alert" v-if="errorMessage">
+    <Alert :type="errorMessage.type" :message="errorMessage.message" />
   </div>
   <div class="create-book">
     <h1>ADD A BOOK</h1>
@@ -16,7 +19,7 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   name: "CreateBook",
   components: { CreateForm, Alert },
-  computed: { ...mapGetters(["bookMsg"]) },
+  computed: { ...mapGetters(["bookMsg", "errorMessage"]) },
   methods: {
     ...mapMutations(["clearBooks"]),
     ...mapMutations(["clearBook"]),
