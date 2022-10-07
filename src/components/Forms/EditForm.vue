@@ -119,6 +119,7 @@ export default {
 
   data() {
     return {
+      id: "",
       image: "",
       name: "",
       numOfPages: "",
@@ -134,9 +135,11 @@ export default {
 
   methods: {
     ...mapActions(["getBook", "editBook"]),
-    handleEditBook(e) {
+
+    async handleEditBook(e) {
       e.preventDefault();
       const bookData = {
+        id: this.id,
         image: this.image,
         name: this.name,
         numOfPages:
@@ -145,15 +148,16 @@ export default {
         category: this.category,
         publishDate: this.publishDate,
         preface: this.preface,
-        link: this.preface,
+        link: this.link,
       };
-      console.log(bookData);
+      await this.editBook(bookData);
     },
   },
 
   async created() {
     this.categories = categories;
     await this.getBook(this.$route.params.id);
+    this.id = this.$route.params.id;
     this.image = this.book.image;
     this.name = this.book.name;
     this.numOfPages = this.book.numOfPages;

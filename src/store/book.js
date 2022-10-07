@@ -95,13 +95,15 @@ const actions = {
     }
   },
 
-  editBook: async ({ commit }, bookId, bookData) => {
+  editBook: async ({ commit }, bookData) => {
     try {
-      const { data } = await axiosInstance.patch(`/books/${bookId}`, bookData);
+      const { data } = await axiosInstance.patch(
+        `/books/${bookData.id}`,
+        bookData
+      );
       commit("setBookMsg", bookActionMsg(data));
       return bookActionMsg(data);
     } catch (error) {
-      console.log(error);
       commit("setErrorMessage", bookActionErrorMsg(error));
     }
   },

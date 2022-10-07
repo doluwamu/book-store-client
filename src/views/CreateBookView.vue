@@ -21,8 +21,7 @@ export default {
   components: { CreateForm, Alert },
   computed: { ...mapGetters(["bookMsg", "errorMessage"]) },
   methods: {
-    ...mapMutations(["clearBooks"]),
-    ...mapMutations(["clearBook"]),
+    ...mapMutations(["clearBooks", "clearBook"]),
   },
   created() {
     this.clearBooks();
