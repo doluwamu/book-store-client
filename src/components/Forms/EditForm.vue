@@ -108,11 +108,14 @@
 
 <script>
 import "@/assets/styles/form.css";
-// import { mapActions, mapMutations } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import { categories } from "@/assets/data/books";
+import moment from "moment";
 
 export default {
   name: "EditForm",
+
+  computed: { ...mapGetters(["book"]) },
 
   data() {
     return {
@@ -125,10 +128,12 @@ export default {
       link: "",
       category: "",
       categories: [],
+      bookData: null,
     };
   },
 
   methods: {
+    ...mapActions(["getBook", "editBook"]),
     handleEditBook(e) {
       e.preventDefault();
       const bookData = {
@@ -146,8 +151,17 @@ export default {
     },
   },
 
-  created() {
+  async created() {
     this.categories = categories;
+    await this.getBook(this.$route.params.id);
+    this.image = this.book.image;
+    this.name = this.book.name;
+    this.numOfPages = this.book.numOfPages;
+    this.author = this.book.author;
+    this.publishDate = moment(this.book.publishDate).format("yyyy-MM-DD");
+    this.preface = this.book.preface;
+    this.link = this.book.link;
+    this.category = this.book.category;
   },
 };
 </script>

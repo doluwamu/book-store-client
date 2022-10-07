@@ -49,7 +49,14 @@
         >
 
         <div class="action-buttons">
-          <button class="btn edit">Edit Book</button>
+          <router-link
+            :to="{
+              name: 'bookEdit',
+              params: { id: book && book.id !== undefined && book.id },
+            }"
+            class="btn edit"
+            >Edit Book</router-link
+          >
           <button @click="removeBook" class="btn delete">Delete Book</button>
         </div>
       </div>
@@ -167,9 +174,11 @@ export default {
   padding: 10px;
   font-size: 17px;
   color: #fff;
+  border: none;
   border-radius: 7px;
   cursor: pointer;
   transition: 0.3s;
+  outline: none;
 }
 
 .btn.delete {
@@ -178,6 +187,7 @@ export default {
 
 .btn.edit {
   background-color: green;
+  text-decoration: none;
 }
 
 .btn.delete:hover {
