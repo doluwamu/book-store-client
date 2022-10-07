@@ -14,11 +14,14 @@ const bookInitState = {
 
 const msgInitState = { id: "", message: "", type: "" };
 
+const booksInitState = [];
+
 const state = {
-  books: [],
+  books: booksInitState,
   book: bookInitState,
   addBookMsg: msgInitState,
   errorMessage: "",
+  deleteMsg: msgInitState,
 };
 
 const getters = {
@@ -26,16 +29,19 @@ const getters = {
   book: (state) => state.book,
   addBookMsg: (state) => state.addBookMsg,
   errorMessage: (state) => state.errorMessage,
+  deleteMsg: (state) => state.deleteMsg,
 };
 
 const mutations = {
   setBooks: (state, books) => (state.books = books),
   setBook: (state, book) => (state.book = book),
   setAddBookMsg: (state, addBookMsg) => (state.addBookMsg = addBookMsg),
-  clearBooks: (state) => (state.books = []),
+  setDeleteMsg: (state, deleteMsg) => (state.deleteMsg = deleteMsg),
+  setErrorMessage: (state, errorMessage) => (state.errorMessage = errorMessage),
+  clearBooks: (state) => (state.books = booksInitState),
   clearBook: (state) => (state.book = bookInitState),
   clearAddBookMsg: (state) => (state.addBookMsg = msgInitState),
-  setErrorMessage: (state, errorMessage) => (state.errorMessage = errorMessage),
+  clearDeleteMsg: (state) => (state.deleteMsg = msgInitState),
 };
 
 const actions = {
@@ -48,6 +54,7 @@ const actions = {
       commit("setErrorMessage", getErrors(error));
     }
   },
+
   getBook: async ({ commit }, bookId) => {
     try {
       const { data } = await axiosInstance.get(`/books/${bookId}`);
@@ -57,6 +64,7 @@ const actions = {
       commit("setErrorMessage", getErrors(error));
     }
   },
+
   addBook: async ({ commit }, bookData) => {
     try {
       const { data } = await axiosInstance.post("/books/", bookData);
@@ -70,6 +78,21 @@ const actions = {
         type: "error",
       };
       commit("setAddBookMsg", data);
+    }
+  },
+
+  deleteBook: async ({ commit }, bookId) => {
+    try {
+      const { data } = await axiosInstance.delete(`/books/${bookId}`);
+      const deleteData = { ...data, type: "success" };
+      commit("setDeleteMsg", deleteData);
+      return deleteData;
+    } catch (error) {
+      const data = {
+        message: getErrors(error),
+        type: "error",
+      };
+      commit("setDeleteMsg", data);
     }
   },
 };

@@ -1,4 +1,8 @@
 <template>
+  <div class="msg-alert" v-if="deleteMsg && deleteMsg.message">
+    <Alert :type="deleteMsg.type" :message="deleteMsg.message" />
+  </div>
+
   <div class="book-details">
     <div class="detail-container">
       <h1 class="book-name">
@@ -32,8 +36,6 @@
           </p>
         </div>
 
-        <br />
-
         <a
           :href="book && book.link && book.link"
           class="get-book-link info"
@@ -41,6 +43,11 @@
           rel="noopener noreferrer"
           >Get Book</a
         >
+
+        <div class="action-buttons">
+          <button class="btn edit">Edit Book</button>
+          <button @click="removeBook" class="btn delete">Delete Book</button>
+        </div>
       </div>
     </div>
   </div>
@@ -49,22 +56,35 @@
 <script>
 import moment from "moment";
 import { mapGetters, mapActions, mapMutations } from "vuex";
+import Alert from "@/components/General/Alert.vue";
 
 export default {
   name: "BookDetails",
-  computed: { ...mapGetters(["book"]) },
+  computed: { ...mapGetters(["book", "deleteMsg"]) },
+  components: { Alert },
   methods: {
-    ...mapActions(["getBook"]),
+    ...mapActions(["getBook", "deleteBook"]),
     ...mapMutations(["clearBooks"]),
+
+    async removeBook() {
+      const confirmDelete = confirm("Do you want to delete this book?");
+
+      if (confirmDelete) {
+        const message = await this.deleteBook(this.bookId);
+        if (message && message.message) return window.location.replace("/");
+      }
+    },
   },
   data() {
     return {
       publishDate: "",
       moment,
+      bookId: "",
     };
   },
   async created() {
     this.clearBooks();
+    this.bookId = this.$route.params.id;
     await this.getBook(this.$route.params.id);
     this.publishDate = new Date(
       this.book && this.book !== null && this.book.publishDate
@@ -125,5 +145,37 @@ export default {
 
 .other-info {
   margin: 30px auto 10px;
+}
+
+.action-buttons {
+  margin: 20px 0 5px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.action-buttons .btn {
+  padding: 10px;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn.delete {
+  background-color: red;
+}
+
+.btn.edit {
+  background-color: green;
+}
+
+.btn.delete:hover {
+  background-color: rgb(146, 2, 2);
+}
+
+.btn.edit:hover {
+  background-color: rgb(2, 80, 2);
 }
 </style>

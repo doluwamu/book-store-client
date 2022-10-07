@@ -94,4 +94,5 @@ export const categories = [
   "Non-fiction novel",
   "Self-help",
   "Educational",
+  "Tragedy",
 ];

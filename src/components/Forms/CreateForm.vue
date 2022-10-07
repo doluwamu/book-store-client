@@ -71,13 +71,9 @@
           <label>Category:</label>
         </div>
 
-        <select name="categories" class="categories">
+        <select name="categories" class="categories" v-model="category">
           <option value="">Select...</option>
-          <option
-            v-for="(category, index) in categories"
-            :key="index"
-            :value="category"
-          >
+          <option v-for="(category, index) in categories" :key="index">
             {{ category }}
           </option>
         </select>
@@ -150,6 +146,7 @@ export default {
       this.publishDate = "";
       this.preface = "";
       this.link = "";
+      this.category = "";
     },
 
     async handleAddBook(e) {
@@ -159,6 +156,7 @@ export default {
         name: this.name,
         numOfPages: Number(this.numOfPages),
         author: this.author,
+        category: this.category,
         publishDate: this.publishDate,
         preface: this.preface,
         link: this.preface,

@@ -1,6 +1,6 @@
 <template>
   <div v-if="message && message.length > 0">
-    <div :class="[type, 'alert']">
+    <div :class="[type ? type : 'success', 'alert']">
       <p class="alert-msg">
         {{ message }}
       </p>
@@ -18,11 +18,12 @@ export default {
     type: String,
   },
 
-  computed: { ...mapMutations(["clearAddBookMsg"]) },
+  computed: { ...mapMutations(["clearAddBookMsg", "clearDeleteMsg"]) },
 
   methods: {
     closeAlert() {
-      return this.clearAddBookMsg;
+      this.clearAddBookMsg;
+      this.clearDeleteMsg;
     },
   },
 };
