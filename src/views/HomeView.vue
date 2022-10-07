@@ -26,7 +26,7 @@ export default {
   components: { BookCard },
   computed: {
     ...mapGetters(["allBooks"]),
-    ...mapMutations(["clearBook", "clearAddBookMsg"]),
+    ...mapMutations(["clearBook", "clearBookMsg"]),
   },
   methods: { ...mapActions(["getBooks"]) },
   data() {

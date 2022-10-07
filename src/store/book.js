@@ -1,6 +1,7 @@
 import { getErrors } from "@/errors/serverErrors";
 import { axiosInstance } from "./axios.instance";
 
+// Initial states and response/error functions
 const bookInitState = {
   image: "",
   name: "",
@@ -16,32 +17,40 @@ const msgInitState = { id: "", message: "", type: "" };
 
 const booksInitState = [];
 
+const bookActionMsg = (data, type = "success") => {
+  return { ...data, type };
+};
+
+const bookActionErrorMsg = (error, type = "error") => {
+  return {
+    message: getErrors(error),
+    type,
+  };
+};
+
+// State management
 const state = {
   books: booksInitState,
   book: bookInitState,
-  addBookMsg: msgInitState,
+  bookMsg: msgInitState,
   errorMessage: "",
-  deleteMsg: msgInitState,
 };
 
 const getters = {
   allBooks: (state) => state.books,
   book: (state) => state.book,
-  addBookMsg: (state) => state.addBookMsg,
+  bookMsg: (state) => state.bookMsg,
   errorMessage: (state) => state.errorMessage,
-  deleteMsg: (state) => state.deleteMsg,
 };
 
 const mutations = {
   setBooks: (state, books) => (state.books = books),
   setBook: (state, book) => (state.book = book),
-  setAddBookMsg: (state, addBookMsg) => (state.addBookMsg = addBookMsg),
-  setDeleteMsg: (state, deleteMsg) => (state.deleteMsg = deleteMsg),
+  setBookMsg: (state, bookMsg) => (state.bookMsg = bookMsg),
   setErrorMessage: (state, errorMessage) => (state.errorMessage = errorMessage),
   clearBooks: (state) => (state.books = booksInitState),
   clearBook: (state) => (state.book = bookInitState),
-  clearAddBookMsg: (state) => (state.addBookMsg = msgInitState),
-  clearDeleteMsg: (state) => (state.deleteMsg = msgInitState),
+  clearBookMsg: (state) => (state.bookMsg = msgInitState),
 };
 
 const actions = {
@@ -68,31 +77,22 @@ const actions = {
   addBook: async ({ commit }, bookData) => {
     try {
       const { data } = await axiosInstance.post("/books/", bookData);
-      const addData = { ...data, type: "success" };
-      commit("setAddBookMsg", addData);
-      return addData;
+      commit("setBookMsg", bookActionMsg(data));
+      return bookActionMsg(data);
     } catch (error) {
       console.log(getErrors(error));
-      const data = {
-        message: getErrors(error),
-        type: "error",
-      };
-      commit("setAddBookMsg", data);
+      commit("setBookMsg", bookActionErrorMsg(error));
     }
   },
 
   deleteBook: async ({ commit }, bookId) => {
     try {
       const { data } = await axiosInstance.delete(`/books/${bookId}`);
-      const deleteData = { ...data, type: "success" };
-      commit("setDeleteMsg", deleteData);
-      return deleteData;
+      commit("setBookMsg", bookActionMsg(data));
+      return bookActionMsg(data);
     } catch (error) {
-      const data = {
-        message: getErrors(error),
-        type: "error",
-      };
-      commit("setDeleteMsg", data);
+      console.log(error);
+      commit("setBookMsg", bookActionErrorMsg(error));
     }
   },
 };

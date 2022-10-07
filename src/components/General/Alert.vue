@@ -18,12 +18,11 @@ export default {
     type: String,
   },
 
-  computed: { ...mapMutations(["clearAddBookMsg", "clearDeleteMsg"]) },
+  computed: { ...mapMutations(["clearBookMsg"]) },
 
   methods: {
     closeAlert() {
-      this.clearAddBookMsg;
-      this.clearDeleteMsg;
+      this.clearBookMsg;
     },
   },
 };

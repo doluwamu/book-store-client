@@ -1,6 +1,6 @@
 <template>
-  <div class="msg-alert" v-if="deleteMsg && deleteMsg.message">
-    <Alert :type="deleteMsg.type" :message="deleteMsg.message" />
+  <div class="msg-alert" v-if="bookMsg && bookMsg.message">
+    <Alert :type="bookMsg.type" :message="bookMsg.message" />
   </div>
 
   <div class="book-details">
@@ -60,7 +60,7 @@ import Alert from "@/components/General/Alert.vue";
 
 export default {
   name: "BookDetails",
-  computed: { ...mapGetters(["book", "deleteMsg"]) },
+  computed: { ...mapGetters(["book", "bookMsg"]) },
   components: { Alert },
   methods: {
     ...mapActions(["getBook", "deleteBook"]),
@@ -141,6 +141,11 @@ export default {
   border-radius: 6px;
   text-decoration: none;
   font-size: 14px;
+  transition: 0.3s;
+}
+
+.get-book-link:hover {
+  background-color: rgb(1, 54, 54);
 }
 
 .other-info {

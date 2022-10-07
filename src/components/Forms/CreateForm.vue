@@ -136,7 +136,7 @@ export default {
   },
   methods: {
     ...mapActions(["addBook"]),
-    ...mapMutations(["setErrorMessage"]),
+    ...mapMutations(["setBookMsg"]),
 
     resetForm() {
       this.image = "";
@@ -162,7 +162,6 @@ export default {
         link: this.preface,
       };
       const message = await this.addBook(bookData);
-      console.log(message);
       if (message && message.message) return this.resetForm();
       // else {
       //   this.setErrorMessage();
