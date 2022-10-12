@@ -3,7 +3,9 @@
     <div class="home-titles">
       <div class="title-contents">
         <h3 class="home-title">Welcome To Book Store</h3>
-        <p class="home-subtitle">Thousands of books at your finger tips</p>
+        <p class="home-subtitle">
+          Thousands of awesome books at your finger tips
+        </p>
       </div>
     </div>
 
@@ -38,11 +40,7 @@ export default {
     ...mapMutations(["clearBook", "clearBookMsg"]),
   },
   methods: { ...mapActions(["getBooks"]) },
-  data() {
-    return {
-      books: [],
-    };
-  },
+
   async created() {
     await this.getBooks();
     this.clearBook;
@@ -58,7 +56,7 @@ export default {
   background-blend-mode: multiply;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 90vh;
+  min-height: 550px;
 }
 
 .most-read {
