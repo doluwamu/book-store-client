@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/add-book">Add Book</router-link>
+    <router-link to="/add-book">Add Book</router-link> |
+    <router-link to="/explore">Explore</router-link>
   </nav>
   <router-view />
   <Footer />

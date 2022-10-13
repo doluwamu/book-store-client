@@ -28,7 +28,7 @@
 
 <script>
 // @ is an alias to /src
-import BookCard from "@/components/Home/BookCard.vue";
+import BookCard from "@/components/General/BookCard.vue";
 import "@/assets/styles/home-view.css";
 import { mapGetters, mapActions, mapMutations } from "vuex";
 
@@ -57,27 +57,5 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 550px;
-}
-
-.most-read {
-  margin-top: 30px;
-}
-
-.most-read-title {
-  max-width: 200px;
-  margin-left: 50px;
-  padding: 5px;
-}
-
-.most-read h3 {
-  font-weight: 500;
-  text-align: left;
-}
-
-.most-read .line {
-  background-color: #fff;
-  max-width: 100px;
-  height: 2px;
-  border-radius: 10px;
 }
 </style>

@@ -32,8 +32,8 @@ export default {
 .alert {
   padding: 10px;
   max-width: 1440px;
-  display: flex;
   animation: openAlert 1s 0.3s;
+  display: flex;
   position: fixed;
   top: 56px;
   width: 100%;

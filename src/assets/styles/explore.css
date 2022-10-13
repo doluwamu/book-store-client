@@ -1,0 +1,76 @@
+.explore {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.explore-titles {
+  max-width: 1250px;
+  padding: 20px 10px;
+  margin: 50px auto 30px;
+  text-align: left;
+}
+
+.explore-title-contents {
+  max-width: 600px;
+}
+
+.explore-titles h1 {
+  font-size: 50px;
+  padding: 10px 5px;
+  font-weight: 500;
+}
+
+.explore-titles p {
+  font-size: 23px;
+  padding: 5px;
+  font-weight: 100 !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-categories {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.top-categories-header {
+  padding: 10px 10px;
+  font-size: 25px;
+}
+
+.top-categories-header h2 {
+  text-align: left;
+  font-weight: 500;
+}
+
+.top-categories .categories {
+  padding: 10px 0;
+}
+
+.top-categories .splide__slide {
+  margin: 0 5px;
+  max-height: 350px;
+  overflow: hidden;
+}
+
+.top-categories .splide__slide img {
+  height: 360px;
+  transition: 0.4s;
+}
+
+.top-categories .splide__slide img:hover {
+  scale: 1.06;
+}
+
+.top-categories .splide__slide .slider-info p {
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.top-categories .splide__pagination {
+  margin: -30px 0;
+}
